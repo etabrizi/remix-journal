@@ -1,0 +1,97 @@
+:root {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background: radial-gradient(circle at 20% 20%, #e0f2fe, transparent 35%),
+    radial-gradient(circle at 80% 0%, #e2e8f0, transparent 30%),
+    #f8fafc;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 32px;
+}
+
+p.lead {
+  color: #475569;
+  margin-top: 0;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"] {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  background: #0ea5e9;
+  color: white;
+  font-weight: 700;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.35);
+}
+
+/* Visible focus states for videos/demos */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #fbbf24; /* amber-300 */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.35);
+  border-color: #fbbf24;
+}
+/* Fallback for older browsers without :focus-visible */
+:focus {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+small.muted {
+  color: #64748b;
+}

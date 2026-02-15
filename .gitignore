@@ -1,0 +1,10 @@
+node_modules
+.playwright
+playwright-report
+test-results
+build
+.cache
+npm-debug.log*
+*.log
+.env
+.DS_Store
