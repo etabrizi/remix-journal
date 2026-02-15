@@ -27,7 +27,7 @@ Visit http://localhost:3000.
   - `default`: seeded journal entry for today + normal responses.
   - `empty`: journal GET returns 404 when no data.
   - `errors`: journal GET for 2026-01-01 returns 500 (demo failure).
-- Handlers cover user (`/user`) and journal (`/journal/:year/:month/:day`) endpoints.
+- Handlers cover journal (`/journal/:year/:month/:day`) endpoints.
 - In-memory seed reset on server start; data is ephemeral.
 
 ## Routes
