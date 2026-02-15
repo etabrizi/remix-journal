@@ -7,9 +7,6 @@
 body {
   margin: 0;
   padding: 2rem;
-  background: radial-gradient(circle at 20% 20%, #e0f2fe, transparent 35%),
-    radial-gradient(circle at 80% 0%, #e2e8f0, transparent 30%),
-    #f8fafc;
 }
 
 main {

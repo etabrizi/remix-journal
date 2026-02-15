@@ -18,11 +18,6 @@ export default function About() {
         </ul>
         <p>Explore the home page to see the mocked user flow.</p>
         <Link to="/">← Back to user demo</Link>
-        <div style={{ marginTop: "16px" }}>
-          <button type="button" onClick={() => alert("Hello")}>
-            Say hello
-          </button>
-        </div>
       </section>
     </main>
   );

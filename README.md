@@ -56,4 +56,4 @@ Visit http://localhost:3000.
 ## Notes
 - Journal data lives in memory (MSW and local store); restart resets it.
 - Download link: `/data/raw` forces `journal.json` download.
-- Client hydration enabled via `<Scripts/>` in `root.tsx`; the only client JS is Remix + your alert button.
+- Client hydration enabled via `<Scripts/>` in `root.tsx` (not using client scripts currently).
