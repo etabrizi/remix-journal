@@ -34,7 +34,6 @@ Visit http://localhost:3000.
 - `/` – date picker; redirects to per-day route; shows today link and entry count.
 - `/:month/:day/:year` – journal entry view/edit (mock API first, fallback to in-memory).
 - `/about` – about page (renders `<Outlet/>`).
-- `/about/emyr` – profile page using MSW mock.
 - `/data/raw` – downloads `journal.json`.
 
 ## Scripts
