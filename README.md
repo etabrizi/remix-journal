@@ -2,8 +2,8 @@
 
 A minimal Remix app demonstrating:
 - SSR-only data flows with MSW for mock HTTP.
-- A journal/calendar that routes by date (`/jan/29/2026`) with loader/action.
-- About pages with nested child (`/about/emyr`).
+- A journal that routes by date (`/jan/29/2026`) with loader/action.
+- A simple About page.
 - E2E coverage using Playwright (snapshots/traces ready).
 
 ## Getting started
@@ -27,13 +27,13 @@ Visit http://localhost:3000.
   - `default`: seeded journal entry for today + normal responses.
   - `empty`: journal GET returns 404 when no data.
   - `errors`: journal GET for 2026-01-01 returns 500 (demo failure).
-- Handlers cover user (`/user`, `/user/emyr`) and journal (`/journal/:year/:month/:day`) endpoints.
+- Handlers cover user (`/user`) and journal (`/journal/:year/:month/:day`) endpoints.
 - In-memory seed reset on server start; data is ephemeral.
 
 ## Routes
 - `/` – date picker; redirects to per-day route; shows today link and entry count.
 - `/:month/:day/:year` – journal entry view/edit (mock API first, fallback to in-memory).
-- `/about` – about page (renders `<Outlet/>`).
+- `/about` – about page.
 - `/data/raw` – downloads `journal.json`.
 
 ## Scripts
