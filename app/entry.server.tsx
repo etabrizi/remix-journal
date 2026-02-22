@@ -1,7 +1,10 @@
 import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
-import { renderToString } from "react-dom/server";
+import { PassThrough } from "node:stream";
+import ReactDOMServer from "react-dom/server";
 import { ensureMockServer } from "./mocks/server.server";
+
+const ABORT_DELAY = 5_000;
 
 ensureMockServer();
 
@@ -12,14 +15,33 @@ export default function handleRequest(
   remixContext: EntryContext,
   loadContext: AppLoadContext
 ) {
-  const markup = renderToString(
-    <RemixServer context={remixContext} url={request.url} abortDelay={5_000} />
-  );
+  return new Promise((resolve, reject) => {
+    const { pipe, abort } = ReactDOMServer.renderToPipeableStream(
+      <RemixServer context={remixContext} url={request.url} />,
+      {
+        onShellReady() {
+          const body = new PassThrough();
 
-  responseHeaders.set("Content-Type", "text/html");
+          responseHeaders.set("Content-Type", "text/html");
+          resolve(
+            new Response(body as unknown as BodyInit, {
+              status: responseStatusCode,
+              headers: responseHeaders
+            })
+          );
 
-  return new Response("<!DOCTYPE html>" + markup, {
-    status: responseStatusCode,
-    headers: responseHeaders
+          pipe(body);
+        },
+        onShellError(error: unknown) {
+          reject(error);
+        },
+        onError(error: unknown) {
+          responseStatusCode = 500;
+          console.error(error);
+        }
+      }
+    );
+
+    setTimeout(abort, ABORT_DELAY);
   });
 }
